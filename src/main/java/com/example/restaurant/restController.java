@@ -47,7 +47,7 @@ public class restController {
 
     @GetMapping("/")
     public String home() {
-        return "home";
+        return "homepage";
     }
 
     @GetMapping("/menu")
