@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    background-color: rgb(187, 189, 191);
+    padding: 0 20vw;
+}
+
+h1 {
+    font-size: 8vw;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    padding-bottom: 6vw;
+    margin-bottom: -200px;
+    color: rgba(255, 255, 255, 0.275);
+}
+
+form {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 60vw;
+    height: 90vh;
+    background: url(loginback.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 1;
+    padding-left: 25vw;
+    padding-top: 5vw;
+
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    width: 23vw;
+    gap: 2vw;
+    height: 35vw;
+    background: transparent;
+    color: aliceblue;
+}
+
+.user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding-bottom: 2vw;
+}
+
+.user input {
+    height: 3vw;
+    width: 15vw;
+    border: 2px solid rgba(161, 160, 160, 0.632);
+    border-radius: 20px;
+    background: transparent;
+    color: antiquewhite;
+    font-size: 15px;
+    padding: 1rem;
+
+}
+
+input::placeholder {
+    font-size: 1.5vw;
+    color: rgba(166, 166, 166, 0.603);
+}
+
+.check {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+a {
+    text-decoration: none;
+    color: aliceblue;
+}
+
+button {
+    width: 7vw;
+    height: 3vw;
+    cursor: pointer;
+    background: transparent;
+    color: aliceblue;
+    border: 1px solid rgb(255, 255, 255);
+    transition: .3s;
+    font-size: 2vw;
+}
+
+button:hover {
+    border: transparent;
+    transform: scale(1.1);
+}
+
+.line {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+img {
+    width: 7vw;
+}
+
+.insta {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.insta i {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+#f {
+    color: blue;
+}
+
+#g {
+    color: rgb(255, 255, 255);
+}
+
+#i {
+    color: rgb(230, 120, 151);
+    font-size: 22px;
+}

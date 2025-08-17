@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="adminhome.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <h1>"Your Website's Command <span>Center.</span>"
+        </h1>
+        <div class="nav">
+            <a th:href="@{/adminhome}">HOME</a>
+            <a th:href="@{/menu}">MENU</a>
+            <a href="#">ABOUT</a>
+            <a href="#">CONTACT</a>
+        </div>
+    </div>
+
+
+        <div class="buttons">
+            <a th:href="@{/viewuser}">VIEW YOUR USERS</a>
+            <a th:href="@{/view}">VIEW TODAY ORDERS</a>
+            <a th:href="@{/addmenu}">MENU ADD ON</a>
+        </div>
+        <div class="p">
+            <p>MANAGE YOUR THINGS WITH EASE....</p>
+        </div>
+
+</body>
+
+</html>

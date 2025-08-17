@@ -1,0 +1,241 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: url(addmenuback.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: repeat;
+    height: 100vh;
+}
+
+.navbar {
+    display: flex;
+    gap: 50vw;
+    align-items: center;
+    border-bottom: 4px solid rgba(182, 155, 155, 0.312);
+    padding: 4vw 6vw;
+    height: 5rem;
+}
+
+.logo img {
+    height: 4vw;
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: aliceblue;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    transition: .3s;
+}
+
+.nav a:hover {
+    transform: scale(1.2);
+}
+
+
+.section {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+
+
+
+#name {
+    height: 3vw;
+    width: 9vw;
+    text-align: center;
+    color: black;
+    font-size: 1vw;
+    border: none;
+}
+
+#image {
+    height: 3vw;
+    width: 9vw;
+    padding: 1vw;
+    color: black;
+    font-size: 1vw;
+    border: none;
+}
+
+#prize {
+    height: 3vw;
+    width: 6vw;
+    text-align: center;
+    color: black;
+    font-size: 1vw;
+    border: none;
+}
+
+.but {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5vw 3vw;
+}
+
+.but button {
+    height: 4vw;
+    width: 8vw;
+    border: none;
+    background: url(Screenshot_2025-06-01_161733-removebg-preview.png);
+    background-position: center;
+    background-size: cover;
+    color: aliceblue;
+    font-size: 2vw;
+    cursor: pointer;
+}
+
+.hero {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* right menu */
+
+.right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2vw;
+    padding-top: 5vw;
+    font-family: cursive;
+    animation: fadeSlideDown 1s ease-in-out forwards;
+    opacity: 0;
+}
+
+@keyframes fadeSlideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-70px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(-30pxpx);
+    }
+}
+
+.right img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 4vw;
+    width: 5vw;
+}
+
+.right p {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row-reverse;
+    align-items: center;
+    height: 5vw;
+    width: 40vw;
+    background-color: rgba(240, 248, 255, 0.925);
+    color: rgb(235, 184, 16);
+    font-size: 2vw;
+    transition: .3s;
+}
+
+
+.right p:hover {
+    background-color: rgb(108, 108, 108);
+    box-shadow: 0px 3px 10px orange;
+}
+
+/* left menu */
+
+.left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2vw;
+    padding-top: 5vw;
+    font-family: cursive;
+    animation: fadeSlideDown 1s ease-in-out forwards;
+    opacity: 0;
+}
+
+@keyframes fadeSlideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-70px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(-30pxpx);
+    }
+}
+
+.left img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 3vw;
+    width: 3vw;
+}
+
+.left p {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row-reverse;
+    align-items: center;
+    height: 5vw;
+    width: 40vw;
+    background-color: rgba(240, 248, 255, 0.925);
+    color: rgb(235, 184, 16);
+    font-size: 2vw;
+    transition: .3s;
+}
+
+
+.left p:hover {
+    background-color: rgb(108, 108, 108);
+    box-shadow: 0px 3px 10px orange;
+}
+
+.catagary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40vw;
+
+
+}
+
+.left span {
+    width: 20vw;
+    text-align: center;
+}
+
+#a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 8vw;
+    font-family: sans-serif;
+    padding-bottom: 1vw;
+    height: .5vw;
+    width: 1vw;
+    color: rgb(235, 184, 16);
+
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/order.css">
+</head>
+
+<body>
+    <div class="container my-2" align="center">
+
+        <h3>TOTAL ORDERS</h3>
+        <div class="btn"> <a th:href="@{/adminhome}">HOME</a>
+        </div>
+        <table border="1" class="table">
+            <thead>
+                <tr>
+                    <th> SAMOSA</th>
+                    <th> BURGER</th>
+                    <th>DOSA</th>
+                    <th>IDALI</th>
+                    <th>BADAMSHAKE</th>
+                    <th>BANANASHAKE</th>
+                    <th>COLDDRINK</th>
+                    <th>MIRINDA</th>
+                    <th>ACTION</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="o:${orders}">
+                    <td th:text="${o.samosa}"></td>
+                    <td th:text="${o.burger}"></td>
+                    <td th:text="${o.dosa}"></td>
+                    <td th:text="${o.idali}"></td>
+                    <td th:text="${o.badamshake}"></td>
+                    <td th:text="${o.bananashake}"></td>
+                    <td th:text="${o.colddrink}"></td>
+                    <td th:text="${o.mirinda}"></td>
+                    
+                        <td class="action">
+                            <a th:href="@{/cencel/{id}(id=${o.id})}">DELETE</a>
+                        </td>
+               
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

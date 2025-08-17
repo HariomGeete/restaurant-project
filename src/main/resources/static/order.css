@@ -1,0 +1,81 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: url(pexels-valeriya-1833349.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+table {
+    padding-top: 3vw;
+    border: wheat;
+    color: aliceblue;
+}
+
+th {
+    color: rgb(255, 255, 255);
+    height: 4vw;
+    width: 10vw;
+}
+
+tr {
+    height: 4vw;
+}
+
+td {
+    text-align: center;
+    color: rgb(95, 241, 4);
+    font-size: 2vw;
+
+}
+
+
+h3 {
+    color: rgba(243, 173, 45, 0.697);
+    font-size: 30px;
+    font-family: cursive;
+}
+
+.btn {
+    padding-right: 70vw;
+
+}
+
+.btn a {
+    text-decoration: none;
+    color: rgb(0, 255, 76);
+    font-size: 20px;
+}
+
+.action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: 4vw;
+
+}
+
+.action a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(pngegg.png);
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+    height: 2vw;
+    width: 6vw;
+    align-items: center;
+    cursor: pointer;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+
+
+}

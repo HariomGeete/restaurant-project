@@ -1,0 +1,75 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+table {
+    padding-top: 3vw;
+    border: rgb(0, 0, 0);
+}
+
+th {
+    color: rgb(0, 0, 0);
+    height: 3vw;
+    width: 15vw;
+}
+
+
+
+td {
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-size: 1vw;
+
+}
+
+
+h3 {
+    color: rgba(62, 62, 62, 0.697);
+    font-size: 30px;
+}
+
+.btn {
+    padding-right: 70vw;
+
+}
+
+.btn a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+}
+
+.action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: 4vw;
+
+}
+
+.action a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+    height: 2vw;
+    width: 6vw;
+    align-items: center;
+    cursor: pointer;
+    font-size: 20px;
+    color: rgb(231, 1, 1);
+
+
+}

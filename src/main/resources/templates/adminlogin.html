@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin panel</title>
+    <link rel="stylesheet" href="adminlogin.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+    <div class="logo">
+        <p>ADMIN LOGIN</p>
+    </div>
+
+
+    <form th:action="@{/adminlogin}" method="post" th:object="${admin}">
+        <div class="hero">
+            <div class="login">
+                <div class="user">
+                    <div class="u"><i class="fa-solid fa-circle-user"></i>
+                    <input type="email" th:field="*{aemail}" required placeholder="Email"></div>
+                    <div class="p">
+                        <i class="fa-solid fa-lock"></i><input type="password" th:field="*{apassword}" required placeholder="Password"></div>
+                </div>
+                <div class="check">
+                    <div class="rem"><input type="checkbox">
+                        <span>Renember me</span>
+                    </div>
+                    <div class="forgate">
+                        <a href="#">Forgot Password ?</a>
+                    </div>
+                </div>
+
+
+                <button type="submit">Login</button>
+                <div class="line"><img src="line.png">
+                    <p>OR</p><img src="line.png">
+                </div>
+                <div class="insta">
+                    <i id="f" class="fa-brands fa-facebook"></i>
+                    <i id="g" class="fa-brands fa-google"></i>
+                    <i id="i" class="fa-brands fa-instagram"></i>
+                </div>
+            </div>
+
+        </div>
+    </form>
+
+
+
+</body>
+
+</html>

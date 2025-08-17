@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="menu.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="Screenshot 2025-06-01 144056.png" alt="">
+        </div>
+        <div class="nav">
+            <a th:href="@{/}">HOME</a>
+            <a th:href="@{/menu}">MENU</a>
+            <a th:href="@{/#footer}">CONTACT</a>
+            <a th:href="@{/#footer}">ABOUT</a>
+            <div class="login">
+                <a th:href="@{/login}">LOGIN</a>
+            </div>
+        </div>
+    </div>
+    <div class="catagary">
+        <h1>FOOD</h1>
+        <h1>DRINKS</h1>
+    </div>
+    <form th:action="@{/order}" method="post" th:object="${order}">
+        <div class="hero">
+            <div class="right">
+                <table class="table" th:each="m:${menus}">
+                    <p><input type="number" placeholder="QT." th:field="*{samosa}" id="samosa"> <a
+                            th:text="${m.prize}"></a><span th:text="${m.name}"></span><img
+                            th:src="@{|data:image/jpeg;base64,${m.byte64Image}|}" width="100" height="100"
+                            alt="image" /></p>
+                </table>
+            </div>
+  
+            <div class="left">
+                <table class="table" th:each="k:${drinks}">
+                    <p><input type="number" placeholder="QT." th:field="*{samosa}" id="samosa"> <a
+                            th:text="${k.drinkprize}"></a><span th:text="${k.drinkname}"></span><img
+                            th:src="@{|data:image/jpeg;base64,${k.base64Image}|}" width="100" height="100"
+                            alt="image"/></p>
+                </table>
+            </div>
+        </div>
+        <div class="but"> <button type="submit">ORDER</button>
+        </div>
+    </form>
+
+
+</body>
+
+</html>

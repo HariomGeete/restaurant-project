@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/update.css">
+</head>
+
+<body>
+    <div class="back">
+        <a th:href="@{/addmenu}">+</a>
+    </div>
+    <div class="food">
+       <form th:action="@{/adddrink}" th:object="${drinks}" method="post" enctype="multipart/form-data">
+    <div class="right">
+        <p>
+            <input type="hidden" th:field="*{id}" />
+            <input type="text" th:field="*{drinkprize}" placeholder="PRIZE" />
+            <input type="text" th:field="*{drinkname}" placeholder="DISHNAME" />
+            <input type="file" name="dimageFile" accept="image/png" />
+        </p>
+    </div>
+    <div class="but">
+        <button type="submit">UPDATE</button>
+    </div>
+</form>
+
+
+    </div>
+</body>
+
+</html>

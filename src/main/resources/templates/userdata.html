@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/userdata.css">
+</head>
+
+<body>
+    <div class="container my-2" align="center">
+
+        <h3>OUR USERS</h3>
+        <div class="btn"> <a th:href="@{/adminhome}">BACK</a>
+        </div>
+        <table border="1" class="table">
+            <thead>
+                <tr>
+                    <th> ID</th>
+                    <th> EMAIL</th>
+                    <th>LOGIN TIME</th>
+                    <th>ACTION</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="u:${users}">
+                    <td th:text="${u.id}"></td>
+                    <td th:text="${u.email}"></td>
+                    <td th:text="${u.date}"></td>
+                    
+                        <td class="action">
+                            <a th:href="@{/delete/{id}(id=${u.id})}">DELETE</a>
+                        </td>
+               
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
