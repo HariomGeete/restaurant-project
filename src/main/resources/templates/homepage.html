@@ -4,18 +4,436 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="home.css">
+    <title>Restaurant & Cafe</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: url('https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 0.25rem solid rgba(255, 255, 255, 0.153);
+            padding: 2rem 6%;
+            height: 7rem;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .logo img {
+            height: 4rem;
+            max-height: 80px;
+            width: auto;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: aliceblue;
+            transition: .3s;
+            position: relative;
+            font-weight: 500;
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -0.8rem;
+            width: 0;
+            height: 0.15rem;
+            background-color: rgba(240, 248, 255, 0.651);
+            transition: width 0.5s;
+        }
+
+        .nav a:hover::after {
+            width: 100%;
+        }
+
+        .login a::after,
+        .login a:hover::after {
+            display: none;
+        }
+
+        .login {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(242, 173, 12);
+            border-radius: 1.875rem;
+            height: 2.5rem;
+            width: 8rem;
+            transition: .3s;
+        }
+
+        .login a {
+            color: black;
+            font-weight: bold;
+        }
+
+        .login:hover {
+            background-color: rgb(251, 198, 74);
+            transform: scale(1.05);
+        }
+
+        .section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: aliceblue;
+            padding-top: 10%;
+            flex: 1;
+            text-align: center;
+        }
+
+        .section p {
+            font-size: clamp(2.5rem, 6vw, 6rem);
+            font-family: cursive;
+            color: rgb(252, 255, 54);
+            animation: fadeSlideDown 1s ease-in-out forwards;
+            opacity: 0;
+            padding: 0 5%;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .section span {
+            padding-top: 3%;
+            font-size: clamp(1rem, 2vw, 2.5rem);
+            color: rgb(255, 255, 255);
+            animation: fadeIn 2s ease-in forwards;
+            opacity: 0;
+            animation-delay: 1s;
+            padding: 0 5%;
+            max-width: 800px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        @keyframes fadeSlideDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-40px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .section2 {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.85);
+            color: aliceblue;
+            min-height: 50vh;
+            padding: 2rem;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .thank p {
+            font-size: clamp(1.5rem, 3vw, 3.5rem);
+            color: antiquewhite;
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        .footer {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2.5rem;
+            padding: 2rem;
+        }
+
+        .foot1, .foot2 {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 4rem;
+            color: rgb(138, 138, 138);
+            flex-wrap: wrap;
+        }
+
+        .foot {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 0.5rem;
+            min-width: 200px;
+        }
+
+        .foot i {
+            font-size: 1.8rem;
+            color: rgb(242, 173, 12);
+            margin-bottom: 0.5rem;
+        }
+
+        .foot h4 {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .foot p {
+            line-height: 1.5;
+        }
+
+        .foot3 {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: clamp(0.8rem, 1.5vw, 1.2rem);
+            background-color: rgb(50, 50, 50);
+            height: 4rem;
+            color: aliceblue;
+            padding: 0 5%;
+            width: 100%;
+        }
+
+        .insta {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .insta a {
+            color: aliceblue;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .insta a:hover {
+            color: rgb(242, 173, 12);
+        }
+
+        a {
+            color: aliceblue;
+            text-decoration: none;
+        }
+
+        /* Mobile Menu Styles */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 2rem;
+            height: 2rem;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 10;
+        }
+
+        .menu-toggle span {
+            width: 2rem;
+            height: 0.25rem;
+            background-color: aliceblue;
+            border-radius: 10px;
+            transition: all 0.3s linear;
+            position: relative;
+            transform-origin: 1px;
+        }
+
+        /* Media Queries */
+        @media (max-width: 1200px) {
+            .navbar {
+                gap: 2rem;
+            }
+            
+            .nav {
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .navbar {
+                padding: 1.5rem 5%;
+            }
+            
+            .nav {
+                gap: 1.5rem;
+            }
+            
+            .login {
+                width: 7rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 70%;
+                max-width: 300px;
+                flex-direction: column;
+                justify-content: center;
+                background-color: rgba(0, 0, 0, 0.95);
+                gap: 2.5rem;
+                transition: right 0.3s ease-in-out;
+                z-index: 5;
+                padding: 2rem;
+            }
+            
+            .nav.active {
+                right: 0;
+            }
+            
+            .login {
+                margin-top: 1rem;
+            }
+            
+            .foot1, .foot2 {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .foot3 {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .section {
+                padding-top: 25%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar {
+                padding: 1rem 5%;
+            }
+            
+            .logo img {
+                height: 3rem;
+            }
+            
+            .section {
+                padding-top: 30%;
+            }
+            
+            .section p {
+                font-size: 2.5rem;
+            }
+            
+            .section span {
+                font-size: 1.2rem;
+            }
+            
+            .section2 {
+                padding: 1.5rem;
+            }
+            
+            .thank p {
+                font-size: 1.8rem;
+            }
+            
+            .footer {
+                padding: 1.5rem;
+            }
+            
+            .foot1, .foot2 {
+                gap: 1.5rem;
+            }
+            
+            .foot {
+                min-width: auto;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .section p {
+                font-size: 2rem;
+            }
+            
+            .section span {
+                font-size: 1rem;
+            }
+            
+            .thank p {
+                font-size: 1.5rem;
+            }
+            
+            .nav {
+                width: 85%;
+            }
+        }
+
+        /* Overlay for when menu is active */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 4;
+        }
+        
+        .overlay.active {
+            display: block;
+        }
+    </style>
 </head>
 
 <body>
     <div class="hero">
-        <div class="navbar">
+        <nav class="navbar">
             <div class="logo">
-                <img src="pngegg1.png" alt="">
+                <img src="/pngegg1.png" alt="Restaurant Logo">
             </div>
-            <div class="nav">
+            
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <div class="nav" id="nav">
                 <a th:href="@{/}">HOME</a>
                 <a th:href="@{/menu}">MENU</a>
                 <a href="#footer">ABOUT</a>
@@ -24,20 +442,22 @@
                     <a th:href="@{/login}">LOGIN</a>
                 </div>
             </div>
-        </div>
+        </nav>
+        
+        <div class="overlay" id="overlay"></div>
+
         <div class="section">
-            <p> WELCOME </p>
+            <p>WELCOME</p>
             <span>It's time to enjoy the finer things in life.</span>
         </div>
     </div>
+    
     <div class="section2">
         <div class="thank">
-            <p>THANK YOU FOR <br>
-                VISITING</p>
+            <p>THANK YOU FOR <br> VISITING</p>
         </div>
 
         <div class="footer" id="footer">
-
             <div class="foot1">
                 <div class="foot">
                     <i class="fa-solid fa-location-dot"></i>
@@ -79,6 +499,42 @@
         </div>
     </div>
 
+    <script>
+        // Mobile menu functionality
+        const menuToggle = document.getElementById('menuToggle');
+        const nav = document.getElementById('nav');
+        const overlay = document.getElementById('overlay');
+        
+        menuToggle.addEventListener('click', function() {
+            nav.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
+        });
+        
+        overlay.addEventListener('click', function() {
+            nav.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        
+        // Close menu when clicking on links
+        const navLinks = document.querySelectorAll('.nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                nav.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // Close menu on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                nav.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    </script>
 </body>
-
 </html>
