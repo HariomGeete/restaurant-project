@@ -4,16 +4,396 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="menu.css">
+    <title>Restaurant Menu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: url('https://images.pexels.com/photos/776538/pexels-photo-776538.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-position: center;
+            background-size: cover;
+            background-repeat: repeat;
+            min-height: 100vh;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: aliceblue;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 0.25rem solid rgba(182, 155, 155, 0.312);
+            padding: 1.5rem 6%;
+            height: 5rem;
+            position: relative;
+        }
+
+        .back a {
+            font-size: 1.8rem;
+            color: rgba(240, 248, 255, 0.93);
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 3.5rem;
+            max-width: 100%;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: aliceblue;
+            position: relative;
+            transition: 0.3s;
+            font-weight: 500;
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -0.8rem;
+            width: 0;
+            height: 0.15rem;
+            background-color: rgba(240, 248, 255, 0.651);
+            transition: width 0.5s;
+        }
+
+        .nav a:hover::after {
+            width: 100%;
+        }
+
+        .login a::after,
+        .login a:hover::after {
+            display: none;
+        }
+
+        .login {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(242, 173, 12);
+            border-radius: 1.875rem;
+            height: 2.5rem;
+            width: 8rem;
+            transition: .3s;
+        }
+
+        .login a {
+            color: black;
+            font-weight: bold;
+        }
+
+        .login:hover {
+            background-color: rgb(251, 198, 74);
+            transform: scale(1.05);
+        }
+
+        .catagary {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            color: rgb(255, 255, 255);
+            padding: 2rem 0;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .catagary h1 {
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            text-align: center;
+        }
+
+        .hero {
+            display: flex;
+            justify-content: space-around;
+            padding: 1rem;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .right, .left {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            animation: fadeSlideDown 1s ease-in-out forwards;
+            opacity: 0;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        @keyframes fadeSlideDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .right p, .left p {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            background-color: rgba(240, 248, 255, 0.925);
+            color: rgb(255, 140, 0);
+            font-size: clamp(1rem, 2vw, 1.8rem);
+            transition: .3s;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .right p:hover, .left p:hover {
+            background-color: rgb(108, 108, 108);
+            box-shadow: 0px 3px 10px orange;
+            transform: translateY(-5px);
+        }
+
+        .right img, .left img {
+            height: clamp(60px, 10vw, 100px);
+            width: clamp(60px, 10vw, 100px);
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .right span, .left span {
+            text-align: center;
+            flex: 1;
+            padding: 0 0.5rem;
+            font-weight: bold;
+        }
+
+        .right a, .left a {
+            font-weight: bold;
+            min-width: 60px;
+            text-align: center;
+        }
+
+        input[type="number"] {
+            height: clamp(2.5rem, 6vw, 3rem);
+            width: clamp(2.5rem, 6vw, 3.5rem);
+            background: transparent;
+            color: rgb(0, 0, 0);
+            text-align: center;
+            font-size: 1.2rem;
+            transition: .3s;
+            border: 1px solid rgba(255, 165, 0, 0.5);
+            border-radius: 0.3rem;
+            font-weight: bold;
+        }
+
+        input[type="number"]::placeholder {
+            color: rgba(0, 0, 0, 0.33);
+            font-size: 0.9rem;
+        }
+
+        .but {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem 1rem;
+        }
+
+        .but button {
+            height: clamp(3.5rem, 8vw, 4.5rem);
+            width: clamp(8rem, 20vw, 12rem);
+            border: none;
+            background: linear-gradient(135deg, #ff8a00, #ffb800);
+            color: white;
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            cursor: pointer;
+            border-radius: 2rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            font-weight: bold;
+        }
+
+        .but button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(135deg, #ff9900, #ffc400);
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 2rem;
+            height: 2rem;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 10;
+        }
+
+        .menu-toggle span {
+            width: 2rem;
+            height: 0.25rem;
+            background-color: aliceblue;
+            border-radius: 10px;
+            transition: all 0.3s linear;
+            position: relative;
+            transform-origin: 1px;
+        }
+
+        /* Overlay for when menu is active */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 4;
+        }
+
+        /* Media Queries */
+        @media (max-width: 1200px) {
+            .navbar {
+                padding: 1.5rem 5%;
+            }
+            
+            .nav {
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .nav {
+                gap: 1.2rem;
+            }
+            
+            .login {
+                width: 7rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 70%;
+                max-width: 300px;
+                flex-direction: column;
+                justify-content: center;
+                background-color: rgba(0, 0, 0, 0.95);
+                gap: 2.5rem;
+                transition: right 0.3s ease-in-out;
+                z-index: 5;
+                padding: 2rem;
+            }
+            
+            .nav.active {
+                right: 0;
+            }
+            
+            .login {
+                margin-top: 1rem;
+            }
+            
+            .hero {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .right p, .left p {
+                flex-direction: column;
+                text-align: center;
+                padding: 1.5rem 1rem;
+                gap: 0.5rem;
+            }
+            
+            input[type="number"] {
+                margin: 0.5rem 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar {
+                padding: 1rem 5%;
+            }
+            
+            .logo img {
+                height: 3rem;
+            }
+            
+            .catagary {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .right p, .left p {
+                padding: 1rem 0.5rem;
+            }
+            
+            .but {
+                padding: 2rem 1rem;
+            }
+            
+            .but button {
+                width: 80%;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .nav {
+                width: 85%;
+            }
+            
+            .right p, .left p {
+                font-size: 1.1rem;
+            }
+            
+            input[type="number"] {
+                width: 2.8rem;
+                height: 2.5rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
     <div class="navbar">
-        <div class="logo">
-            <img src="Screenshot 2025-06-01 144056.png" alt="">
+        <div class="back">
+            <a th:href="@{/}"><i class="fas fa-arrow-left"></i></a>
         </div>
-        <div class="nav">
+        <div class="logo">
+            <img src="https://via.placeholder.com/150x50/333/fff?text=LOGO" alt="Restaurant Logo">
+        </div>
+        
+        <button class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
+        <div class="nav" id="nav">
             <a th:href="@{/}">HOME</a>
             <a th:href="@{/menu}">MENU</a>
             <a th:href="@{/#footer}">CONTACT</a>
@@ -23,35 +403,80 @@
             </div>
         </div>
     </div>
+    
+    <div class="overlay" id="overlay"></div>
+
     <div class="catagary">
         <h1>FOOD</h1>
         <h1>DRINKS</h1>
     </div>
+    
     <form th:action="@{/order}" method="post" th:object="${order}">
         <div class="hero">
             <div class="right">
-                <table class="table" th:each="m:${menus}">
-                    <p><input type="number" placeholder="QT." th:field="*{samosa}" id="samosa"> <a
-                            th:text="${m.prize}"></a><span th:text="${m.name}"></span><img
-                            th:src="@{|data:image/jpeg;base64,${m.byte64Image}|}" width="100" height="100"
-                            alt="image" /></p>
-                </table>
+                <div class="table" th:each="m:${menus}">
+                    <p>
+                        <input type="number" placeholder="QT." th:field="*{samosa}" id="samosa" min="0" max="99">
+                        <a th:text="${m.prize}"></a>
+                        <span th:text="${m.name}"></span>
+                        <img th:src="@{|data:image/jpeg;base64,${m.byte64Image}|}" alt="Food Image"/>
+                    </p>
+                </div>
             </div>
   
             <div class="left">
-                <table class="table" th:each="k:${drinks}">
-                    <p><input type="number" placeholder="QT." th:field="*{samosa}" id="samosa"> <a
-                            th:text="${k.drinkprize}"></a><span th:text="${k.drinkname}"></span><img
-                            th:src="@{|data:image/jpeg;base64,${k.base64Image}|}" width="100" height="100"
-                            alt="image"/></p>
-                </table>
+                <div class="table" th:each="k:${drinks}">
+                    <p>
+                        <input type="number" placeholder="QT." th:field="*{samosa}" id="samosa" min="0" max="99">
+                        <a th:text="${k.drinkprize}"></a>
+                        <span th:text="${k.drinkname}"></span>
+                        <img th:src="@{|data:image/jpeg;base64,${k.base64Image}|}" alt="Drink Image"/>
+                    </p>
+                </div>
             </div>
         </div>
-        <div class="but"> <button type="submit">ORDER</button>
+        
+        <div class="but">
+            <button type="submit">ORDER NOW</button>
         </div>
     </form>
 
-
+    <script>
+        // Mobile menu functionality
+        const menuToggle = document.getElementById('menuToggle');
+        const nav = document.getElementById('nav');
+        const overlay = document.getElementById('overlay');
+        
+        menuToggle.addEventListener('click', function() {
+            nav.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
+        });
+        
+        overlay.addEventListener('click', function() {
+            nav.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        
+        // Close menu when clicking on links
+        const navLinks = document.querySelectorAll('.nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                nav.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // Close menu on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                nav.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    </script>
 </body>
-
 </html>
